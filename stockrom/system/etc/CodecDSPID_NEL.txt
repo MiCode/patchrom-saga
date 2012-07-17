@@ -1,0 +1,21 @@
+Header, Saga_soundeffet_NEL_2011_0719
+## Group for phone ##
+Phone_Default,/system/etc/soundimage/Sound_Original.txt
+Phone_Handset_Dualmic,/system/etc/soundimage/NEL_Sound_Phone_Original_REC.txt
+Phone_Speaker_Dualmic,
+Phone_Headset,
+Phone_HAC,
+Phone_TTY,
+
+## Group for playback ## 
+Playback_Default,/system/etc/soundimage/Sound_Original.txt
+Playback_Speaker_Default,/system/etc/soundimage/Sound_Original_SPK.txt
+
+## Group for recording ##
+Record_Default,/system/etc/soundimage/Sound_Original.txt
+Record_V_Mono,/system/etc/soundimage/Sound_Recording.txt
+Record_V_IMIC_Landscape_Stereo,/system/etc/soundimage/Sound_Rec_Landscape.txt
+Record_V_IMIC_Protrait_Stereo,/system/etc/soundimage/Sound_Rec_Portrait.txt
+Record_A_IMIC_Mono,
+Record_A_EMIC_Mono,
+

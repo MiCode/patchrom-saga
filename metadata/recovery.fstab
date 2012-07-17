@@ -1,0 +1,7 @@
+/system ext4 /dev/block/mmcblk0p25
+/system/lib ext4 /dev/block/mmcblk0p28
+/data ext4 /dev/block/mmcblk0p26
+/cache ext4 /dev/block/mmcblk0p27
+/data/secure/data tmpfs tmpfs
+/data/htcfs fuse.htcfs htcfs
+/data/DxDrm/fuse fuse.DxDrmServerIpc DxDrmServerIpc
