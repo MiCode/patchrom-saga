@@ -11,7 +11,7 @@ local-out-zip-file := G12_MIUI.zip
 # local-out-zip-file :=
 
 # All apps from original ZIP, but has smali files chanded
-
+local-modified-apps := HTCCamera
 
 local-modified-jars := HTCExtension
 
