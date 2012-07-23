@@ -245,13 +245,9 @@
     .line 379
     :cond_0
     :goto_0
-    new-instance v17, Landroid/content/ContentValues;
+    invoke-static {}, Landroid/provider/CallLog$Calls;->getExtraCallLogValues()Landroid/content/ContentValues;
 
-    const/4 v4, 0x5
-
-    move-object/from16 v0, v17
-
-    invoke-direct {v0, v4}, Landroid/content/ContentValues;-><init>(I)V
+    move-result-object v17
 
     .line 381
     .local v17, values:Landroid/content/ContentValues;
@@ -580,25 +576,21 @@
     move-result v4
 
     if-nez v4, :cond_6
-
-    .line 453
+    goto :cond_6
     const-string v4, "city_id"
 
     move-object/from16 v0, v17
 
     invoke-virtual {v0, v4, v10}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 456
     :cond_6
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/internal/telephony/CallerInfo;->cnapName:Ljava/lang/String;
 
-    .line 458
     .local v11, cname:Ljava/lang/String;
     const/4 v9, 0x0
 
-    .line 463
     .local v9, FAKE_CNAME:Z
     invoke-static {v11}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -999,7 +991,6 @@
 
     move-result-object v2
 
-    invoke-virtual {p0, v2, v1, v4, v4}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
     .line 545
     return-void

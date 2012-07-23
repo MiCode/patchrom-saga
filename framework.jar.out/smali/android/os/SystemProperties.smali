@@ -45,11 +45,43 @@
 
     .line 47
     :cond_0
+    const-string/jumbo v0, "ro.debuggable"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 49
+    const-string v0, "1"
+
+    .line 56
+    :goto_0
+    return-object v0
+
+    .line 51
+    :cond_1
+    const-string/jumbo v0, "ro.secure"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 53
+    const-string v0, "0"
+
+    goto :goto_0
+
+    .line 56
+    :cond_2
     invoke-static {p0}, Landroid/os/SystemProperties;->native_get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public static get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
