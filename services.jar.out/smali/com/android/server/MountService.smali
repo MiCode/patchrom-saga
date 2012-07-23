@@ -5038,32 +5038,24 @@
 
     if-nez v11, :cond_0
 
-    .line 1640
     invoke-static {}, Landroid/os/Environment;->hasInternalFat()Z
 
     move-result v11
 
     if-nez v11, :cond_4
 
-    .line 1641
-    const-string v14, "@string/storage_sd_card"
+    #const-string v14, "@string/storage_sd_card"
 
-    .line 1642
     const/16 v23, 0x1
 
-    .line 1643
     const/4 v5, 0x1
 
-    .line 1644
     const/4 v6, 0x0
 
-    .line 1645
     const/4 v7, 0x0
 
-    .line 1646
     const-string v20, "0"
 
-    .line 1655
     :goto_2
     const-string v11, "/mnt/sdcard/usb"
 
@@ -5193,7 +5185,7 @@
     .restart local v23       #primary:Z
     :cond_4
     :try_start_3
-    const-string v14, "@string/storage_internal"
+    #const-string v14, "@string/storage_internal"
 
     .line 1649
     const/16 v23, 0x1
