@@ -63,6 +63,9 @@ local-zip-misc:
 	@echo add system config
 	cp other/system_etc/* $(ZIP_DIR)/system/etc/
 
+	@echo add spn-conf.xml
+	cp other/spn-conf.xml $(ZIP_DIR)/system/etc/spn-conf.xml
+
 	@echo delete redundance files
 	rm -f $(ZIP_DIR)/system/customize/resource/*.png
 	rm -rf $(ZIP_DIR)/system/media/weather
