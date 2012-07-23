@@ -8,8 +8,10 @@ def DeleteFormat(info):
             edify.script[i]="""ui_print("do not formate system");"""
         elif "mount" in edify.script[i] and "/dev/block/mmcblk0p25" in edify.script[i]:
             edify.script[i]="""mount("ext4", "EMMC", "/dev/block/mmcblk0p25", "/system");
-delete_recursive("/system/app", "/system/bin", "/system/customize", "/system/etc", "/system/fonts", "/system/framework", "/system/lib", "/system/media", "/system/tts", "/system/usr", "/system/xbin","/system/build.prop", "0");
-mount("ext4", "EMMC", "/dev/block/mmcblk0p28", "/system/lib");"""
+mount("ext4", "EMMC", "/dev/block/mmcblk0p28", "/system/lib");
+delete_recursive("/system/lib", "/system/app", "/system/bin", "/system/customize", "/system/etc", "/system/fonts", "/system/framework", "/system/media", "/system/tts", "/system/usr", "/system/xbin","/system/build.prop", "0");
+mount("ext4", "EMMC", "/dev/block/mmcblk0p28", "/system/lib");
+run_program("/sbin/busybox", "rm", "/system/lib/*", "-rf");"""
     return
 
 def AddAssertions(info):
