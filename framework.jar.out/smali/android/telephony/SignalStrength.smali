@@ -1607,12 +1607,10 @@
     .prologue
     const/4 v4, -0x1
 
-    .line 449
     iget-boolean v3, p0, Landroid/telephony/SignalStrength;->isGsm:Z
 
     if-eqz v3, :cond_1
-
-    .line 450
+    goto :goto_10
     iget v3, p0, Landroid/telephony/SignalStrength;->mLteSignalStrength:I
 
     if-ne v3, v4, :cond_0
@@ -1628,18 +1626,15 @@
     iget v3, p0, Landroid/telephony/SignalStrength;->mLteCqi:I
 
     if-ne v3, v4, :cond_0
-
-    .line 455
+    :goto_10
     invoke-virtual {p0}, Landroid/telephony/SignalStrength;->getGsmAsuLevel()I
 
     move-result v0
 
-    .line 474
     .local v0, asuLevel:I
     :goto_0
     return v0
 
-    .line 457
     .end local v0           #asuLevel:I
     :cond_0
     invoke-virtual {p0}, Landroid/telephony/SignalStrength;->getLteAsuLevel()I
@@ -2027,14 +2022,12 @@
     .prologue
     const/4 v2, -0x1
 
-    .line 485
     invoke-virtual {p0}, Landroid/telephony/SignalStrength;->isGsm()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
-
-    .line 486
+    goto :goto_10
     iget v1, p0, Landroid/telephony/SignalStrength;->mLteSignalStrength:I
 
     if-ne v1, v2, :cond_0
@@ -2050,18 +2043,15 @@
     iget v1, p0, Landroid/telephony/SignalStrength;->mLteCqi:I
 
     if-ne v1, v2, :cond_0
-
-    .line 491
+    :goto_10
     invoke-virtual {p0}, Landroid/telephony/SignalStrength;->getGsmDbm()I
 
     move-result v0
 
-    .line 499
     .local v0, dBm:I
     :goto_0
     return v0
 
-    .line 493
     .end local v0           #dBm:I
     :cond_0
     invoke-virtual {p0}, Landroid/telephony/SignalStrength;->getLteDbm()I
@@ -2557,7 +2547,7 @@
 
     if-lt v0, v2, :cond_3
 
-    const/4 v1, 0x4
+    const/4 v1, 0x3
 
     .restart local v1       #level:I
     goto :goto_0
@@ -2569,7 +2559,7 @@
 
     if-lt v0, v2, :cond_4
 
-    const/4 v1, 0x4
+    const/4 v1, 0x2
 
     .restart local v1       #level:I
     goto :goto_0
@@ -2629,12 +2619,10 @@
     .prologue
     const/4 v4, -0x1
 
-    .line 412
     iget-boolean v3, p0, Landroid/telephony/SignalStrength;->isGsm:Z
 
     if-eqz v3, :cond_1
-
-    .line 415
+    goto :goto_10
     iget v3, p0, Landroid/telephony/SignalStrength;->mLteSignalStrength:I
 
     if-ne v3, v4, :cond_0
@@ -2650,23 +2638,13 @@
     iget v3, p0, Landroid/telephony/SignalStrength;->mLteCqi:I
 
     if-ne v3, v4, :cond_0
-
-    .line 420
+    :goto_10
     invoke-virtual {p0}, Landroid/telephony/SignalStrength;->getGsmLevel()I
 
     move-result v2
 
-    .line 439
     .local v2, level:I
     :goto_0
-    const/4 v4, 0x1
-
-    if-gt v2, v4, :cond_5
-
-    return v2
-
-    :cond_5
-    const/4 v2, 0x4
 
     return v2
 
