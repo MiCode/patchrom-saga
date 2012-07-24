@@ -178,11 +178,12 @@ ro.vendor.extension_library=/system/lib/libqc-opt.so
 # ADDITIONAL_BUILD_PROPERTIES
 #
 ro.setupwizard.mode=OPTIONAL
-ro.config.ringtone=MI.ogg
 ro.config.notification_sound=FadeIn.ogg
-ro.config.alarm_alert=FadeIn.ogg
-ro.config.cal_notification=FadeIn.ogg
-ro.config.msg_notification=FadeIn.ogg
+ro.config.alarm_alert=GoodMorning.ogg
+ro.config.ringtone=MI.ogg
+#sms sound
+ro.config.sms_received_sound=FadeIn.ogg
+ro.config.sms_delivered_sound=MessageComplete.ogg
 drm.service.enabled=true
 media.a1026.nsForVoiceRec=0
 htc.audio.alt.enable=0
