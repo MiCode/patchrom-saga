@@ -2659,6 +2659,15 @@
     .line 439
     .local v2, level:I
     :goto_0
+    const/4 v4, 0x1
+
+    if-gt v2, v4, :cond_5
+
+    return v2
+
+    :cond_5
+    const/4 v2, 0x4
+
     return v2
 
     .line 422
