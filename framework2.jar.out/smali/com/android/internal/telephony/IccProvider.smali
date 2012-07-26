@@ -78,39 +78,26 @@
 
     :goto_0
     sput-boolean v0, Lcom/android/internal/telephony/IccProvider;->VERIZON_WPHONE_CONFIG:Z
-    
-    const/4 v5, 0x3
 
-    const/4 v4, 0x2
+    .line 211
+    new-array v0, v5, [Ljava/lang/String;
 
-    const/4 v3, 0x1
+    const-string v3, "name"
 
-    const/4 v0, 0x4
+    aput-object v3, v0, v1
 
-    new-array v0, v0, [Ljava/lang/String;
+    const-string v3, "number"
 
-    const/4 v1, 0x0
+    aput-object v3, v0, v2
 
-    const-string v2, "name"
+    const-string v3, "emails"
 
-    aput-object v2, v0, v1
-
-    const-string v1, "number"
-
-    aput-object v1, v0, v3
-
-    const-string v1, "emails"
-
-    aput-object v1, v0, v4
-
-    const-string v1, "_id"
-
-    aput-object v1, v0, v5
+    aput-object v3, v0, v4
 
     sput-object v0, Lcom/android/internal/telephony/IccProvider;->ADDRESS_BOOK_COLUMN_NAMES:[Ljava/lang/String;
 
-    const/4 v0, 0x0
-    sput v0, Lcom/android/internal/telephony/IccProvider;->mUrl:I
+    .line 225
+    sput v1, Lcom/android/internal/telephony/IccProvider;->mUrl:I
 
     new-instance v0, Landroid/content/UriMatcher;
 
@@ -125,9 +112,9 @@
 
     const-string v1, "icc"
 
-    const-string v2, "adn"
+    const-string v3, "adn"
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v3, v2}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
     .line 244
     sget-object v0, Lcom/android/internal/telephony/IccProvider;->URL_MATCHER:Landroid/content/UriMatcher;
