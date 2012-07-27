@@ -119,7 +119,7 @@
 
 .field private mCurrentSubtype:Landroid/view/inputmethod/InputMethodSubtype;
 
-.field private mDialogBuilder:Lcom/htc/widget/HtcAlertDialog$Builder;
+.field private mDialogBuilder:Landroid/app/AlertDialog$Builder;
 
 .field mEnabledSession:Lcom/android/server/InputMethodManagerService$SessionState;
 
@@ -220,7 +220,7 @@
 
 .field private mSubtypeIds:[I
 
-.field private mSwitchingDialog:Lcom/htc/widget/HtcAlertDialog;
+.field private mSwitchingDialog:Landroid/app/AlertDialog;
 
 .field mSystemReady:Z
 
@@ -3898,11 +3898,11 @@
 
     .line 2274
     .local v5, a:Landroid/content/res/TypedArray;
-    new-instance v35, Lcom/htc/widget/HtcAlertDialog$Builder;
+    new-instance v35, Landroid/app/AlertDialog$Builder;
 
     move-object/from16 v0, v35
 
-    invoke-direct {v0, v8}, Lcom/htc/widget/HtcAlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v8}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     const v37, 0x1040417
 
@@ -3910,7 +3910,7 @@
 
     move/from16 v1, v37
 
-    invoke-virtual {v0, v1}, Lcom/htc/widget/HtcAlertDialog$Builder;->setTitle(I)Lcom/htc/widget/HtcAlertDialog$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v35
 
@@ -3926,7 +3926,7 @@
 
     move-object/from16 v1, v37
 
-    invoke-virtual {v0, v1}, Lcom/htc/widget/HtcAlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Lcom/htc/widget/HtcAlertDialog$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v35
 
@@ -3942,7 +3942,7 @@
 
     move-object/from16 v1, v37
 
-    invoke-virtual {v0, v1}, Lcom/htc/widget/HtcAlertDialog$Builder;->setIcon(Landroid/graphics/drawable/Drawable;)Lcom/htc/widget/HtcAlertDialog$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v35
 
@@ -3950,7 +3950,7 @@
 
     move-object/from16 v1, p0
 
-    iput-object v0, v1, Lcom/android/server/InputMethodManagerService;->mDialogBuilder:Lcom/htc/widget/HtcAlertDialog$Builder;
+    iput-object v0, v1, Lcom/android/server/InputMethodManagerService;->mDialogBuilder:Landroid/app/AlertDialog$Builder;
 
     .line 2284
     invoke-virtual {v5}, Landroid/content/res/TypedArray;->recycle()V
@@ -3968,7 +3968,7 @@
     .local v6, adapter:Lcom/android/server/InputMethodManagerService$ImeSubtypeListAdapter;
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mDialogBuilder:Lcom/htc/widget/HtcAlertDialog$Builder;
+    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mDialogBuilder:Landroid/app/AlertDialog$Builder;
 
     move-object/from16 v35, v0
 
@@ -3984,7 +3984,7 @@
 
     move-object/from16 v1, v37
 
-    invoke-virtual {v0, v6, v7, v1}, Lcom/htc/widget/HtcAlertDialog$Builder;->setSingleChoiceItems(Landroid/widget/ListAdapter;ILandroid/content/DialogInterface$OnClickListener;)Lcom/htc/widget/HtcAlertDialog$Builder;
+    invoke-virtual {v0, v6, v7, v1}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems(Landroid/widget/ListAdapter;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 2313
     if-eqz p1, :cond_f
@@ -3994,7 +3994,7 @@
     .line 2314
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mDialogBuilder:Lcom/htc/widget/HtcAlertDialog$Builder;
+    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mDialogBuilder:Landroid/app/AlertDialog$Builder;
 
     move-object/from16 v35, v0
 
@@ -4014,17 +4014,17 @@
 
     move-object/from16 v2, v38
 
-    invoke-virtual {v0, v1, v2}, Lcom/htc/widget/HtcAlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/htc/widget/HtcAlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 2323
     :cond_f
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mDialogBuilder:Lcom/htc/widget/HtcAlertDialog$Builder;
+    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mDialogBuilder:Landroid/app/AlertDialog$Builder;
 
     move-object/from16 v35, v0
 
-    invoke-virtual/range {v35 .. v35}, Lcom/htc/widget/HtcAlertDialog$Builder;->create()Lcom/htc/widget/HtcAlertDialog;
+    invoke-virtual/range {v35 .. v35}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v35
 
@@ -4032,12 +4032,12 @@
 
     move-object/from16 v1, p0
 
-    iput-object v0, v1, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Lcom/htc/widget/HtcAlertDialog;
+    iput-object v0, v1, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
 
     .line 2324
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Lcom/htc/widget/HtcAlertDialog;
+    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
 
     move-object/from16 v35, v0
 
@@ -4047,16 +4047,16 @@
 
     move/from16 v1, v37
 
-    invoke-virtual {v0, v1}, Lcom/htc/widget/HtcAlertDialog;->setCanceledOnTouchOutside(Z)V
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
 
     .line 2327
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Lcom/htc/widget/HtcAlertDialog;
+    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
 
     move-object/from16 v35, v0
 
-    invoke-virtual/range {v35 .. v35}, Lcom/htc/widget/HtcAlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual/range {v35 .. v35}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v35
 
@@ -4071,11 +4071,11 @@
     .line 2328
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Lcom/htc/widget/HtcAlertDialog;
+    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
 
     move-object/from16 v35, v0
 
-    invoke-virtual/range {v35 .. v35}, Lcom/htc/widget/HtcAlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual/range {v35 .. v35}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v35
 
@@ -4094,16 +4094,16 @@
     .line 2329
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Lcom/htc/widget/HtcAlertDialog;
+    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
 
     move-object/from16 v35, v0
 
-    invoke-virtual/range {v35 .. v35}, Lcom/htc/widget/HtcAlertDialog;->show()V
+    invoke-virtual/range {v35 .. v35}, Landroid/app/AlertDialog;->show()V
 
     .line 2332
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Lcom/htc/widget/HtcAlertDialog;
+    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
 
     move-object/from16 v35, v0
 
@@ -4113,7 +4113,7 @@
 
     move/from16 v1, v37
 
-    invoke-virtual {v0, v1}, Lcom/htc/widget/HtcAlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v26
 
@@ -7048,21 +7048,21 @@
     const/4 v1, 0x0
 
     .line 2420
-    iget-object v0, p0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Lcom/htc/widget/HtcAlertDialog;
+    iget-object v0, p0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
     .line 2421
-    iget-object v0, p0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Lcom/htc/widget/HtcAlertDialog;
+    iget-object v0, p0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Lcom/htc/widget/HtcAlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
     .line 2422
-    iput-object v1, p0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Lcom/htc/widget/HtcAlertDialog;
+    iput-object v1, p0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
 
     .line 2425
     :cond_0
-    iput-object v1, p0, Lcom/android/server/InputMethodManagerService;->mDialogBuilder:Lcom/htc/widget/HtcAlertDialog$Builder;
+    iput-object v1, p0, Lcom/android/server/InputMethodManagerService;->mDialogBuilder:Landroid/app/AlertDialog$Builder;
 
     .line 2426
     iput-object v1, p0, Lcom/android/server/InputMethodManagerService;->mIms:[Landroid/view/inputmethod/InputMethodInfo;
