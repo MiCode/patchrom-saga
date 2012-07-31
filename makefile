@@ -1,6 +1,5 @@
 #
-# Makefile for onex
-#
+# Makefile for onex #
 
 # The original zip file, MUST be specified by each product
 local-zip-file     := stockrom.zip
@@ -14,13 +13,13 @@ local-previous-target-dir := ~/workspace/ota_base/saga
 # local-out-zip-file :=
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := HTCCamera SettingsProvider
+local-modified-apps := SettingsProvider HTCAlbum HTCCamera
 
 local-modified-jars := HTCExtension framework2
 
 local-miui-modified-apps := Phone ThemeManager Mms MiuiHome Settings MiuiGallery
 # All apks from MIUI
-local-miui-removed-apps  := LatinIME SettingsProvider Stk Bluetooth
+local-miui-removed-apps  := LatinIME SettingsProvider Stk Bluetooth MediaProvider
 
 
 #local-remove-apps := Twitter  
@@ -30,7 +29,7 @@ local-phone-apps := ApplicationsProvider BackupRestoreConfirmation Bluetooth Brc
 	HTC_IME HTCCamera HtcFMRadio com.htc.FMRadioWidget  HTMLViewer KeyChain LMW  \
 	NoiseField PluginManager SDCardWizard SharedStorageBackup BlueSky Stk \
 	TrimIt UploadProvider Usage UserDictionaryProvider WifiRouter \
-	CustomizationSettingsProvider SettingsProvider
+	CustomizationSettingsProvider SettingsProvider HTCAlbum MediaProvider
 
 # To include the local targets before and after zip the final ZIP file, 
 # and the local-targets should:

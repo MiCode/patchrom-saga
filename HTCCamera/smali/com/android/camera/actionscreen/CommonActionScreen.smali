@@ -882,6 +882,8 @@
 
     const-string v4, "com.htc.video.ViewVideo"
 
+    invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
     .line 483
     const-string v3, "landscape"
 
@@ -908,6 +910,7 @@
 
     const-string v4, "com.htc.album.TabPluginDevice.ViewVideo"
 
+    invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 498
     const-string v3, "landscape"
@@ -2191,6 +2194,7 @@
 
     invoke-direct {v9, p0}, Lcom/android/camera/actionscreen/CommonActionScreen$22;-><init>(Lcom/android/camera/actionscreen/CommonActionScreen;)V
 
+    invoke-virtual {v8, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 980
     const v8, 0x7f08008e

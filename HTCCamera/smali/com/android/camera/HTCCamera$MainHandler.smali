@@ -2883,6 +2883,7 @@
 
     move-object/from16 v0, v31
 
+    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 1562
     const-string v3, "landscape"
@@ -2916,6 +2917,7 @@
 
     move-object/from16 v0, v31
 
+    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 1577
     const-string v3, "landscape"

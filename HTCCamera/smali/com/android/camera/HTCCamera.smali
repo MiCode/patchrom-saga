@@ -29075,11 +29075,9 @@
     .line 10958
     .local v0, action:Ljava/lang/String;
     :goto_0
-    #invoke-static {}, Lcom/android/camera/CameraThread;->getLastContentUri()Landroid/net/Uri;
+    invoke-static {}, Lcom/android/camera/CameraThread;->getLastContentUri()Landroid/net/Uri;
 
-    #move-result-object v1
-
-    const/4 v1, 0x0
+    move-result-object v1
 
     const-string v2, "image/jpeg"
 
@@ -29091,7 +29089,7 @@
     .line 10957
     .end local v0           #action:Ljava/lang/String;
     :cond_0
-    const-string v0, "android.intent.action.VIEW"
+    const-string v0, "com.htc.album.action.VIEW_PHOTO_FROM_CAMERA"
 
     .restart local v0       #action:Ljava/lang/String;
     goto :goto_0

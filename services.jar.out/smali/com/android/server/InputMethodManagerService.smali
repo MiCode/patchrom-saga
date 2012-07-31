@@ -2306,6 +2306,7 @@
 
     if-ne v1, v15, :cond_4
 
+    goto :goto_10
     .line 1158
     const/4 v15, 0x0
 
@@ -2386,6 +2387,7 @@
 
     .line 1162
     :cond_3
+    :goto_10
     const/4 v15, 0x0
 
     monitor-exit v16
@@ -4099,96 +4101,6 @@
     move-object/from16 v35, v0
 
     invoke-virtual/range {v35 .. v35}, Landroid/app/AlertDialog;->show()V
-
-    .line 2332
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
-
-    move-object/from16 v35, v0
-
-    const/16 v37, -0x1
-
-    move-object/from16 v0, v35
-
-    move/from16 v1, v37
-
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
-
-    move-result-object v26
-
-    .line 2333
-    .local v26, positiveButton:Landroid/widget/Button;
-    if-eqz v26, :cond_10
-
-    .line 2334
-    new-instance v24, Landroid/graphics/Paint;
-
-    invoke-direct/range {v24 .. v24}, Landroid/graphics/Paint;-><init>()V
-
-    .line 2335
-    .local v24, paint:Landroid/graphics/Paint;
-    sget-object v35, Landroid/graphics/Typeface;->DEFAULT:Landroid/graphics/Typeface;
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v35
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
-
-    .line 2336
-    invoke-virtual/range {v26 .. v26}, Landroid/widget/Button;->getTextSize()F
-
-    move-result v35
-
-    move-object/from16 v0, v24
-
-    move/from16 v1, v35
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setTextSize(F)V
-
-    .line 2337
-    invoke-virtual/range {v26 .. v26}, Landroid/widget/Button;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v35
-
-    check-cast v35, Ljava/lang/String;
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v35
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
-
-    move-result v34
-
-    .line 2338
-    .local v34, text_width:F
-    invoke-virtual/range {v26 .. v26}, Landroid/widget/Button;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v23
-
-    check-cast v23, Landroid/widget/LinearLayout$LayoutParams;
-
-    .line 2339
-    .local v23, lp:Landroid/widget/LinearLayout$LayoutParams;
-    move/from16 v0, v34
-
-    float-to-int v0, v0
-
-    move/from16 v35, v0
-
-    move/from16 v0, v35
-
-    move-object/from16 v1, v23
-
-    iput v0, v1, Landroid/widget/LinearLayout$LayoutParams;->width:I
-
-    .line 2341
-    .end local v23           #lp:Landroid/widget/LinearLayout$LayoutParams;
-    .end local v24           #paint:Landroid/graphics/Paint;
-    .end local v34           #text_width:F
-    :cond_10
     monitor-exit v36
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
