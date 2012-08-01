@@ -10600,6 +10600,8 @@
 
     if-eqz v19, :cond_33
 
+	goto/16 :cond_33
+
     .line 3935
     const/16 v19, 0x1
 
