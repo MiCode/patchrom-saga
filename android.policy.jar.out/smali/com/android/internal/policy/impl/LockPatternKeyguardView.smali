@@ -1242,8 +1242,7 @@
     :goto_0
     if-nez v1, :cond_0
 
-    .line 1530
-    new-instance v1, Lcom/android/internal/policy/impl/AccountUnlockScreen;
+    new-instance v1, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
     .end local v1           #screenPlugin:Landroid/view/View;
     move-object/from16 v0, p0
@@ -1266,7 +1265,7 @@
 
     iget-object v6, v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-direct/range {v1 .. v6}, Lcom/android/internal/policy/impl/AccountUnlockScreen;-><init>(Landroid/content/Context;Landroid/content/res/Configuration;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/widget/LockPatternUtils;)V
+    invoke-direct/range {v1 .. v6}, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;-><init>(Landroid/content/Context;Landroid/content/res/Configuration;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/widget/LockPatternUtils;)V
 
     .line 1537
     .restart local v1       #screenPlugin:Landroid/view/View;
