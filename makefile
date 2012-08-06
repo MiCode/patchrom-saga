@@ -28,7 +28,7 @@ local-phone-apps := ApplicationsProvider BackupRestoreConfirmation Bluetooth Brc
 	CertInstaller DefaultContainerService DFPI DrmProvider FilePicker \
 	HTC_IME HTCCamera HtcFMRadio com.htc.FMRadioWidget  HTMLViewer KeyChain LMW  \
 	NoiseField PluginManager SDCardWizard SharedStorageBackup BlueSky Stk \
-	TrimIt UploadProvider Usage UserDictionaryProvider WifiRouter \
+	TrimIt UploadProvider Usage UserDictionaryProvider WifiRouter HtcVideoPlayer\
 	CustomizationSettingsProvider SettingsProvider HTCAlbum MediaProvider
 
 # To include the local targets before and after zip the final ZIP file, 
