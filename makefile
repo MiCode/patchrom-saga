@@ -58,6 +58,8 @@ local-zip-misc:
 	rm $(ZIP_DIR)/system/bin/bootanimation
 	cp other/bootanimation $(ZIP_DIR)/system/bin/bootanimation
 
+	@echo add system app
+	cp other/system_app/* $(ZIP_DIR)/system/app/
 
 	@echo add system config
 	cp other/system_etc/* $(ZIP_DIR)/system/etc/
