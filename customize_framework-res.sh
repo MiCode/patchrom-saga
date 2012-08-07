@@ -4,12 +4,12 @@
 # $2: dir for target framework-res
 #
 
-if [ `basename $1` = "drawable-hdpi" -o `basename $1` = "drawable-xhdpi" ];then
+if [ `basename $1` = "drawable-hdpi" ];then
 	restype=`basename $1`
 	for file in `find "$1"`
 	do
 		newfile=`basename $file`
-		newfile1=`echo $newfile | sed -e "s/^/zzzhtc_/"`
+		newfile1=`echo $newfile | sed -e "s/^/zhtc_/"`
 		targetfile="$2/$restype/$newfile1"
         	if [ -f $targetfile ]
         	then
