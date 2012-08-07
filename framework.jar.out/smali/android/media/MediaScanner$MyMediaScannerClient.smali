@@ -975,17 +975,11 @@
     :cond_11
     const-string/jumbo v24, "notification_sound"
 
-    move-object/from16 v0, p0
+    move-object/from16 v0, p1
 
-    move-object/from16 v1, v24
+    iget-object v0, v0, Landroid/media/MediaScanner$FileCacheEntry;->mPath:Ljava/lang/String;
 
-    move-object/from16 v2, v19
-
-    move-wide/from16 v3, v17
-
-    invoke-direct {v0, v1, v2, v3, v4}, Landroid/media/MediaScanner$MyMediaScannerClient;->setSettingIfNotSet(Ljava/lang/String;Landroid/net/Uri;J)V
-
-    const-string v24, "sms_delivered_sound"
+    move-object/from16 v19, v0
 
     move-object/from16 v0, p0
 
@@ -993,10 +987,15 @@
 
     move-object/from16 v2, v19
 
-    invoke-direct {v0, v1, v2, v3, v4}, Landroid/media/MediaScanner$MyMediaScannerClient;->setSettingIfNotSet(Ljava/lang/String;Landroid/net/Uri;J)V
+    invoke-direct {v0, v1, v2}, Landroid/media/MediaScanner$MyMediaScannerClient;->setSettingIfNotSet(Ljava/lang/String;Ljava/lang/String;)V
 
+    const-string/jumbo v24, "sms_delivered_sound"
 
-    const-string v24, "sms_received_sound"
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/media/MediaScanner$FileCacheEntry;->mPath:Ljava/lang/String;
+
+    move-object/from16 v19, v0
 
     move-object/from16 v0, p0
 
@@ -1004,7 +1003,24 @@
 
     move-object/from16 v2, v19
 
-    invoke-direct {v0, v1, v2, v3, v4}, Landroid/media/MediaScanner$MyMediaScannerClient;->setSettingIfNotSet(Ljava/lang/String;Landroid/net/Uri;J)V
+    invoke-direct {v0, v1, v2}, Landroid/media/MediaScanner$MyMediaScannerClient;->setSettingIfNotSet(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v24, "sms_received_sound"
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/media/MediaScanner$FileCacheEntry;->mPath:Ljava/lang/String;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v24
+
+    move-object/from16 v2, v19
+
+    invoke-direct {v0, v1, v2}, Landroid/media/MediaScanner$MyMediaScannerClient;->setSettingIfNotSet(Ljava/lang/String;Ljava/lang/String;)V
+
     .line 1044
     move-object/from16 v0, p0
 
@@ -1813,15 +1829,19 @@
     :cond_28
     const-string/jumbo v24, "ringtone"
 
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/media/MediaScanner$FileCacheEntry;->mPath:Ljava/lang/String;
+
+    move-object/from16 v19, v0
+
     move-object/from16 v0, p0
 
     move-object/from16 v1, v24
 
     move-object/from16 v2, v19
 
-    move-wide/from16 v3, v17
-
-    invoke-direct {v0, v1, v2, v3, v4}, Landroid/media/MediaScanner$MyMediaScannerClient;->setSettingIfNotSet(Ljava/lang/String;Landroid/net/Uri;J)V
+    invoke-direct {v0, v1, v2}, Landroid/media/MediaScanner$MyMediaScannerClient;->setSettingIfNotSet(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1050
     move-object/from16 v0, p0
@@ -1918,15 +1938,19 @@
     :cond_2a
     const-string v24, "alarm_alert"
 
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/media/MediaScanner$FileCacheEntry;->mPath:Ljava/lang/String;
+
+    move-object/from16 v19, v0
+
     move-object/from16 v0, p0
 
     move-object/from16 v1, v24
 
     move-object/from16 v2, v19
 
-    move-wide/from16 v3, v17
-
-    invoke-direct {v0, v1, v2, v3, v4}, Landroid/media/MediaScanner$MyMediaScannerClient;->setSettingIfNotSet(Ljava/lang/String;Landroid/net/Uri;J)V
+    invoke-direct {v0, v1, v2}, Landroid/media/MediaScanner$MyMediaScannerClient;->setSettingIfNotSet(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1056
     move-object/from16 v0, p0
@@ -2362,6 +2386,7 @@
     :cond_0
     return-void
 .end method
+
 .method private toValues()Landroid/content/ContentValues;
     .locals 4
 
