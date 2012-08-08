@@ -37,6 +37,7 @@ ro.build.version.codename=REL
 ro.build.version.release=4.0.4
 ro.build.date=二  6月 19 21:32:53 CST 2012
 ro.build.date.utc=1340112773
+persist.sys.timezone=Asia/Shanghai
 ro.build.type=user
 ro.build.user=
 ro.build.host=ABM019
