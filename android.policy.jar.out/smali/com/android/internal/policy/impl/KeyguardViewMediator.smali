@@ -3280,190 +3280,383 @@
 .end method
 
 .method public onScreenTurnedOff(I)V
-    .locals 6
+    .locals 21
     .parameter "why"
 
     .prologue
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
-
-    .line 411
-    iget-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mSystemReady:Z
-
-    if-nez v2, :cond_0
-
-    .line 508
-    :goto_0
-    return-void
-
-    .line 413
-    :cond_0
+    .line 352
     monitor-enter p0
 
-    .line 415
-    const/4 v2, 0x1
+    .line 353
+    const/16 v18, 0x0
 
     :try_start_0
-    iput-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mScreenOnWait:Z
+    move/from16 v0, v18
 
-    .line 416
-    const/4 v2, 0x1
+    move-object/from16 v1, p0
 
-    iput-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mWaitSurface:Z
+    iput-boolean v0, v1, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mScreenOn:Z
 
-    .line 417
-    iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mHandler:Landroid/os/Handler;
+    .line 359
+    move-object/from16 v0, p0
 
-    const/16 v3, 0x65
+    iget-object v0, v0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->removeMessages(I)V
+    move-object/from16 v18, v0
 
-    .line 418
-    iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mHandler:Landroid/os/Handler;
+    invoke-virtual/range {v18 .. v18}, Lcom/android/internal/widget/LockPatternUtils;->getPowerButtonInstantlyLocks()Z
 
-    const/16 v3, 0x65
+    move-result v18
 
-    const-wide/16 v4, 0x1f4
+    if-nez v18, :cond_0
 
-    invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    move-object/from16 v0, p0
 
-    .line 420
-    iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mHandler:Landroid/os/Handler;
+    iget-object v0, v0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    const/16 v3, 0x66
+    move-object/from16 v18, v0
 
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->removeMessages(I)V
+    invoke-virtual/range {v18 .. v18}, Lcom/android/internal/widget/LockPatternUtils;->isSecure()Z
 
-    .line 421
-    iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mHandler:Landroid/os/Handler;
+    move-result v18
 
-    const/16 v3, 0x66
+    if-nez v18, :cond_2
 
-    const-wide/16 v4, 0x3e8
+    :cond_0
+    const/4 v10, 0x1
 
-    invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    .line 362
+    .local v10, lockImmediately:Z
+    :goto_0
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mExitSecureCallback:Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;
+
+    move-object/from16 v18, v0
+
+    if-eqz v18, :cond_3
+
+    .line 364
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mExitSecureCallback:Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x0
+
+    invoke-interface/range {v18 .. v19}, Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;->onKeyguardExitResult(Z)V
+
+    .line 365
+    const/16 v18, 0x0
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mExitSecureCallback:Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;
+
+    .line 366
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mExternallyEnabled:Z
+
+    move/from16 v18, v0
+
+    if-nez v18, :cond_1
+
+    .line 367
+    invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->hideLocked()V
 
     .line 423
-    const/4 v2, 0x0
-
-    iput-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mScreenOn:Z
-
-    .line 429
-    iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v2}, Lcom/android/internal/widget/LockPatternUtils;->getPowerButtonInstantlyLocks()Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v2}, Lcom/android/internal/widget/LockPatternUtils;->isSecure()Z
-
-    move-result v2
-
-    if-nez v2, :cond_2
-
     :cond_1
-    move v0, v1
-
-    .line 432
-    .local v0, lockImmediately:Z
-    :cond_2
-    iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mExitSecureCallback:Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;
-
-    if-eqz v2, :cond_5
-
-    .line 434
-    iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mExitSecureCallback:Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;
-
-    const/4 v3, 0x0
-
-    invoke-interface {v2, v3}, Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;->onKeyguardExitResult(Z)V
-
-    .line 435
-    const/4 v2, 0x0
-
-    iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mExitSecureCallback:Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;
-
-    .line 436
-    iget-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mExternallyEnabled:Z
-
-    if-nez v2, :cond_3
-
-    .line 437
-    invoke-direct {p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->hideLocked()V
-
-    .line 501
-    :cond_3
     :goto_1
-    if-ne p1, v1, :cond_4
-
-    .line 502
-    const-string v1, "KeyguardViewMediator"
-
-    const-string v2, "password timeout because of ADMIN"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 503
-    iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mHandler:Landroid/os/Handler;
-
-    const/16 v2, 0xe
-
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
-
-    .line 504
-    iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mHandler:Landroid/os/Handler;
-
-    const/16 v2, 0xe
-
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    .line 507
-    :cond_4
     monitor-exit p0
+
+    .line 424
+    return-void
+
+    .line 359
+    .end local v10           #lockImmediately:Z
+    :cond_2
+    const/4 v10, 0x0
 
     goto :goto_0
 
-    .end local v0           #lockImmediately:Z
+    .line 369
+    .restart local v10       #lockImmediately:Z
+    :cond_3
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mShowing:Z
+
+    move/from16 v18, v0
+
+    if-eqz v18, :cond_4
+
+    .line 370
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->notifyScreenOffLocked()V
+
+    .line 371
+    invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->resetStateLocked()V
+
+    goto :goto_1
+
+    .line 423
+    .end local v10           #lockImmediately:Z
     :catchall_0
-    move-exception v1
+    move-exception v18
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw v18
 
-    .line 439
-    .restart local v0       #lockImmediately:Z
+    .line 372
+    .restart local v10       #lockImmediately:Z
+    :cond_4
+    const/16 v18, 0x3
+
+    move/from16 v0, p1
+
+    move/from16 v1, v18
+
+    if-eq v0, v1, :cond_5
+
+    const/16 v18, 0x2
+
+    move/from16 v0, p1
+
+    move/from16 v1, v18
+
+    if-ne v0, v1, :cond_8
+
+    if-nez v10, :cond_8
+
+    .line 379
     :cond_5
     :try_start_1
-    iget-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mShowing:Z
+    move-object/from16 v0, p0
 
-    if-eqz v2, :cond_6
+    iget-object v0, v0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->notifyScreenOffLocked()V
+    move-object/from16 v18, v0
 
-    invoke-direct {p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->resetStateLocked()V
+    invoke-virtual/range {v18 .. v18}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    goto :goto_1
+    move-result-object v4
 
+    .line 382
+    .local v4, cr:Landroid/content/ContentResolver;
+    const-string v18, "screen_off_timeout"
+
+    const/16 v19, 0x7530
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v19
+
+    invoke-static {v4, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    int-to-long v5, v0
+
+    .line 386
+    .local v5, displayTimeout:J
+    const-string v18, "lock_screen_lock_after_timeout"
+
+    const/16 v19, 0x1388
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v19
+
+    invoke-static {v4, v0, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    int-to-long v8, v0
+
+    .line 391
+    .local v8, lockAfterTimeout:J
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v18 .. v18}, Lcom/android/internal/widget/LockPatternUtils;->getDevicePolicyManager()Landroid/app/admin/DevicePolicyManager;
+
+    move-result-object v18
+
+    const/16 v19, 0x0
+
+    invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->getMaximumTimeToLock()J
+
+    move-result-wide v11
+
+    .line 395
+    .local v11, policyTimeout:J
+    const-wide/16 v18, 0x0
+
+    cmp-long v18, v11, v18
+
+    if-lez v18, :cond_6
+
+    .line 397
+    const-wide/16 v18, 0x0
+
+    move-wide/from16 v0, v18
+
+    invoke-static {v5, v6, v0, v1}, Ljava/lang/Math;->max(JJ)J
+
+    move-result-wide v5
+
+    .line 398
+    sub-long v18, v11, v5
+
+    move-wide/from16 v0, v18
+
+    invoke-static {v0, v1, v8, v9}, Ljava/lang/Math;->min(JJ)J
+
+    move-result-wide v14
+
+    .line 403
+    .local v14, timeout:J
+    :goto_2
+    const-wide/16 v18, 0x0
+
+    cmp-long v18, v14, v18
+
+    if-gtz v18, :cond_7
+
+    .line 405
+    const/16 v18, 0x1
+
+    move/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mSuppressNextLockSound:Z
+
+    .line 406
+    invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->doKeyguardLocked()V
+
+    goto/16 :goto_1
+
+    .line 400
+    .end local v14           #timeout:J
     :cond_6
-    const/4 v2, 0x4
+    move-wide v14, v8
 
-    if-eq p1, v2, :cond_3
+    .restart local v14       #timeout:J
+    goto :goto_2
 
-    invoke-direct {p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->doKeyguardLocked()V
+    .line 409
+    :cond_7
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->notifyScreenOffLocked()V
+    move-result-wide v18
+
+    add-long v16, v18, v14
+
+    .line 410
+    .local v16, when:J
+    new-instance v7, Landroid/content/Intent;
+
+    const-string v18, "com.android.internal.policy.impl.PhoneWindowManager.DELAYED_KEYGUARD"
+
+    move-object/from16 v0, v18
+
+    invoke-direct {v7, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 411
+    .local v7, intent:Landroid/content/Intent;
+    const-string v18, "seq"
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mDelayedShowingSequence:I
+
+    move/from16 v19, v0
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v19
+
+    invoke-virtual {v7, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    .line 412
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mContext:Landroid/content/Context;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x0
+
+    const/high16 v20, 0x1000
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v19
+
+    move/from16 v2, v20
+
+    invoke-static {v0, v1, v7, v2}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+
+    move-result-object v13
+
+    .line 414
+    .local v13, sender:Landroid/app/PendingIntent;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mAlarmManager:Landroid/app/AlarmManager;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x2
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v19
+
+    move-wide/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2, v3, v13}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
+
+    goto/16 :goto_1
+
+    .line 418
+    .end local v4           #cr:Landroid/content/ContentResolver;
+    .end local v5           #displayTimeout:J
+    .end local v7           #intent:Landroid/content/Intent;
+    .end local v8           #lockAfterTimeout:J
+    .end local v11           #policyTimeout:J
+    .end local v13           #sender:Landroid/app/PendingIntent;
+    .end local v14           #timeout:J
+    .end local v16           #when:J
+    :cond_8
+    const/16 v18, 0x4
+
+    move/from16 v0, p1
+
+    move/from16 v1, v18
+
+    if-eq v0, v1, :cond_1
+
+    .line 421
+    invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->doKeyguardLocked()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1
+    goto/16 :goto_1
 .end method
 
 .method public onScreenTurnedOn(Lcom/android/internal/policy/impl/KeyguardViewManager$ShowListener;)V
