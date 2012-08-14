@@ -2304,8 +2304,6 @@
 
     const-string v3, "com.htc.video.ViewVideo"
 
-    invoke-virtual {v10, v1, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
     .line 531
     move-object/from16 v0, p4
 

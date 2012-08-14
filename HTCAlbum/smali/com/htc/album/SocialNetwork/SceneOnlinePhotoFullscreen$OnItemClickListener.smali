@@ -172,8 +172,6 @@
 
     const-string v8, "com.htc.video.ViewVideo"
 
-    invoke-virtual {v4, v7, v8}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
     .line 1055
     invoke-virtual {v0}, Lcom/htc/opensense2/album/SocialNetworkManager/WrapperPhoto;->getVideoUri()Ljava/lang/String;
 

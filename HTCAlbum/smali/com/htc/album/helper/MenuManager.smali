@@ -5140,8 +5140,6 @@
 
     const-string v6, "com.htc.video.ViewVideo"
 
-    invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
     .line 1984
     invoke-interface {p1}, Lcom/htc/opensense2/album/util/ImageManager$IImage;->getMimeType()Ljava/lang/String;
 
