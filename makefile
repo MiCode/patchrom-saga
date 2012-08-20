@@ -52,9 +52,6 @@ local-zip-misc:
 	@echo Update build.prop
 	cp other/build.prop $(ZIP_DIR)/system/build.prop
 
-	@echo add liblbesec.so
-	cp other/liblbesec.so $(ZIP_DIR)/system/lib/liblbesec.so
-
 	@echo update bootanimation
 	rm $(ZIP_DIR)/system/bin/bootanimation
 	cp other/bootanimation $(ZIP_DIR)/system/bin/bootanimation
@@ -64,6 +61,9 @@ local-zip-misc:
 
 	@echo add system config
 	cp other/system_etc/* $(ZIP_DIR)/system/etc/
+
+	@echo add system lib
+	cp other/system_lib/* $(ZIP_DIR)/system/lib/
 
 	@echo add spn-conf.xml
 	cp other/spn-conf.xml $(ZIP_DIR)/system/etc/spn-conf.xml
