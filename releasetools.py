@@ -11,7 +11,7 @@ def DeleteFormat(info):
 package_extract_file("mount_lib.sh", "/mount_lib.sh");
 run_program("/sbin/busybox", "chmod", "777", /mount_lib.sh);
 run_program("/mount_lib.sh");
-delete_recursive("/system/lib", "/system/app", "/system/bin", "/system/customize", "/system/etc", "/system/fonts", "/system/framework", "/system/media", "/system/tts", "/system/usr", "/system/xbin","/system/build.prop", "0");
+delete_recursive("/system/lost+found", "/system/lib", "/system/app", "/system/bin", "/system/customize", "/system/etc", "/system/fonts", "/system/framework", "/system/media", "/system/tts", "/system/usr", "/system/xbin","/system/build.prop", "0");
 run_program("/mount_lib.sh");
 run_program("/sbin/busybox", "rm", "/system/lib/*", "-rf");"""
     return
