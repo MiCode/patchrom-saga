@@ -43,14 +43,13 @@
 
     throw v0
 
+    .line 47
     :cond_0
-    .line 50
     invoke-static {p0}, Landroid/os/SystemProperties;->native_get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
-
 .end method
 
 .method public static get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;

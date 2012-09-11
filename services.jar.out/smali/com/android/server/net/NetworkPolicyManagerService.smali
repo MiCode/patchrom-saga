@@ -497,10 +497,8 @@
 
     iput-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
 
-    .line 292
     iput-boolean p8, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mSuppressDefaultPolicy:Z
 
-    .line 294
     const-string v0, "NetworkPolicyManagerService"
 
     const-string v1, "create netpolicy.xml "

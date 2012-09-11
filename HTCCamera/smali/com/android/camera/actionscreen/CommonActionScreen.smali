@@ -882,14 +882,12 @@
 
     const-string v4, "com.htc.video.ViewVideo"
 
-    .line 483
     const-string v3, "landscape"
 
     const/4 v4, 0x1
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 484
     invoke-virtual {p0}, Lcom/android/camera/actionscreen/CommonActionScreen;->getCameraActivity()Lcom/android/camera/HTCCamera;
 
     move-result-object v3
@@ -898,11 +896,9 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 492
     :goto_1
     if-nez v0, :cond_4
 
-    .line 497
     :try_start_1
     const-string v3, "com.htc.album"
 
@@ -910,14 +906,14 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 498
+    .line 483
     const-string v3, "landscape"
 
     const/4 v4, 0x1
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 499
+    .line 484
     invoke-virtual {p0}, Lcom/android/camera/actionscreen/CommonActionScreen;->getCameraActivity()Lcom/android/camera/HTCCamera;
 
     move-result-object v3

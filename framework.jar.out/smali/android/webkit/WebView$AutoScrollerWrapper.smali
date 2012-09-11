@@ -34,29 +34,29 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 12400
+    .line 12415
     iput-object p1, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->this$0:Landroid/webkit/WebView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 12401
+    .line 12416
     new-instance v0, Landroid/webkit/WebViewAutoScroller;
 
     invoke-direct {v0}, Landroid/webkit/WebViewAutoScroller;-><init>()V
 
     iput-object v0, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->mWebviewScroller:Landroid/webkit/WebViewAutoScroller;
 
-    .line 12402
+    .line 12417
     new-instance v0, Landroid/webkit/WebViewAutoScroller;
 
     invoke-direct {v0}, Landroid/webkit/WebViewAutoScroller;-><init>()V
 
     iput-object v0, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->mParentAutoScroller:Landroid/webkit/WebViewAutoScroller;
 
-    .line 12403
+    .line 12418
     iput-boolean v1, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->scrolling:Z
 
-    .line 12404
+    .line 12419
     iput-boolean v1, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->checkParent:Z
 
     return-void
@@ -74,12 +74,12 @@
 
     const/4 v0, 0x1
 
-    .line 12433
+    .line 12448
     iget-object v2, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->mWebviewScroller:Landroid/webkit/WebViewAutoScroller;
 
     invoke-virtual {v2, p1, p2, v0}, Landroid/webkit/WebViewAutoScroller;->checkAutoScroll(FFZ)V
 
-    .line 12434
+    .line 12449
     iget-object v2, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->mWebviewScroller:Landroid/webkit/WebViewAutoScroller;
 
     invoke-virtual {v2}, Landroid/webkit/WebViewAutoScroller;->isScrolling()Z
@@ -88,25 +88,25 @@
 
     if-eqz v2, :cond_0
 
-    .line 12435
+    .line 12450
     iput-boolean v0, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->scrolling:Z
 
-    .line 12448
+    .line 12463
     :goto_0
     return v0
 
-    .line 12439
+    .line 12454
     :cond_0
     iget-boolean v2, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->checkParent:Z
 
     if-eqz v2, :cond_1
 
-    .line 12440
+    .line 12455
     iget-object v2, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->mParentAutoScroller:Landroid/webkit/WebViewAutoScroller;
 
     invoke-virtual {v2, p1, p2, v0}, Landroid/webkit/WebViewAutoScroller;->checkAutoScroll(FFZ)V
 
-    .line 12441
+    .line 12456
     iget-object v2, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->mParentAutoScroller:Landroid/webkit/WebViewAutoScroller;
 
     invoke-virtual {v2}, Landroid/webkit/WebViewAutoScroller;->isScrolling()Z
@@ -115,18 +115,18 @@
 
     if-eqz v2, :cond_1
 
-    .line 12442
+    .line 12457
     iput-boolean v0, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->scrolling:Z
 
     goto :goto_0
 
-    .line 12447
+    .line 12462
     :cond_1
     iput-boolean v1, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->scrolling:Z
 
     move v0, v1
 
-    .line 12448
+    .line 12463
     goto :goto_0
 .end method
 
@@ -137,18 +137,18 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 12407
+    .line 12422
     iput-boolean v0, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->scrolling:Z
 
-    .line 12408
+    .line 12423
     iput-boolean v0, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->checkParent:Z
 
-    .line 12410
+    .line 12425
     iget-object v0, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->mWebviewScroller:Landroid/webkit/WebViewAutoScroller;
 
     invoke-virtual {v0, p1}, Landroid/webkit/WebViewAutoScroller;->findScrollableView(Landroid/view/View;)V
 
-    .line 12411
+    .line 12426
     invoke-virtual {p1}, Landroid/webkit/WebView;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
@@ -157,12 +157,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 12412
+    .line 12427
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->checkParent:Z
 
-    .line 12413
+    .line 12428
     iget-object v1, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->mParentAutoScroller:Landroid/webkit/WebViewAutoScroller;
 
     invoke-virtual {p1}, Landroid/webkit/WebView;->getParent()Landroid/view/ViewParent;
@@ -173,7 +173,7 @@
 
     invoke-virtual {v1, v0}, Landroid/webkit/WebViewAutoScroller;->findScrollableView(Landroid/view/View;)V
 
-    .line 12415
+    .line 12430
     :cond_0
     return-void
 .end method
@@ -182,7 +182,7 @@
     .locals 1
 
     .prologue
-    .line 12452
+    .line 12467
     iget-boolean v0, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->scrolling:Z
 
     return v0
@@ -194,22 +194,22 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 12418
+    .line 12433
     iget-object v0, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->mWebviewScroller:Landroid/webkit/WebViewAutoScroller;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewAutoScroller;->stopScroll()V
 
-    .line 12419
+    .line 12434
     iget-object v0, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->mParentAutoScroller:Landroid/webkit/WebViewAutoScroller;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewAutoScroller;->stopScroll()V
 
-    .line 12421
+    .line 12436
     iput-boolean v1, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->scrolling:Z
 
-    .line 12422
+    .line 12437
     iput-boolean v1, p0, Landroid/webkit/WebView$AutoScrollerWrapper;->checkParent:Z
 
-    .line 12423
+    .line 12438
     return-void
 .end method

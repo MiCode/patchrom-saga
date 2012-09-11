@@ -15433,6 +15433,92 @@
     goto :goto_0
 .end method
 
+.method protected HtcCustomzie_KTResetRetrySequence()V
+    .locals 6
+
+    .prologue
+    .line 4928
+    const-string v5, "Screen turn on, reset retry sequence"
+
+    invoke-virtual {p0, v5}, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;->log(Ljava/lang/String;)V
+
+    .line 4930
+    iget-object v5, p0, Lcom/android/internal/telephony/DataConnectionTracker;->mApnContexts:Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-virtual {v5}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    .local v3, i$:Ljava/util/Iterator;
+    :cond_0
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/internal/telephony/ApnContext;
+
+    .line 4931
+    .local v0, apnContext:Lcom/android/internal/telephony/ApnContext;
+    invoke-virtual {v0}, Lcom/android/internal/telephony/ApnContext;->getDataConnectionAc()Lcom/android/internal/telephony/DataConnectionAc;
+
+    move-result-object v2
+
+    .line 4932
+    .local v2, dcac:Lcom/android/internal/telephony/DataConnectionAc;
+    invoke-virtual {v0}, Lcom/android/internal/telephony/ApnContext;->getDataConnection()Lcom/android/internal/telephony/DataConnection;
+
+    move-result-object v1
+
+    .line 4933
+    .local v1, dc:Lcom/android/internal/telephony/DataConnection;
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Lcom/android/internal/telephony/DataConnectionAc;->getReconnectIntentSync()Landroid/app/PendingIntent;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_0
+
+    .line 4934
+    invoke-direct {p0, v2}, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;->cancelReconnectAlarm(Lcom/android/internal/telephony/DataConnectionAc;)V
+
+    .line 4935
+    invoke-virtual {v1}, Lcom/android/internal/telephony/DataConnection;->resetRetryCount()V
+
+    .line 4936
+    invoke-virtual {v1}, Lcom/android/internal/telephony/DataConnection;->getRetryTimer()I
+
+    move-result v4
+
+    .line 4937
+    .local v4, nextReconnectDelay:I
+    invoke-virtual {v1}, Lcom/android/internal/telephony/DataConnection;->increaseRetryCount()V
+
+    .line 4938
+    invoke-direct {p0, v4, v0}, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;->startAlarmForReconnect(ILcom/android/internal/telephony/ApnContext;)V
+
+    goto :goto_0
+
+    .line 4941
+    .end local v0           #apnContext:Lcom/android/internal/telephony/ApnContext;
+    .end local v1           #dc:Lcom/android/internal/telephony/DataConnection;
+    .end local v2           #dcac:Lcom/android/internal/telephony/DataConnectionAc;
+    .end local v4           #nextReconnectDelay:I
+    :cond_1
+    return-void
+.end method
+
 .method protected HtcGetAnyDataEnabled(Lcom/android/internal/telephony/ApnContext;)Z
     .locals 7
     .parameter "ac"

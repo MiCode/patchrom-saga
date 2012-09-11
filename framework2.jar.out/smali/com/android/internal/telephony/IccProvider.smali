@@ -99,6 +99,7 @@
     .line 225
     sput v1, Lcom/android/internal/telephony/IccProvider;->mUrl:I
 
+    .line 239
     new-instance v0, Landroid/content/UriMatcher;
 
     const/4 v1, -0x1
