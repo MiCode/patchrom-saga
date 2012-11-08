@@ -26,6 +26,7 @@ def FullOTA_InstallEnd(info):
     AddAssertions(info)
 
 def AddIncrementalLibrary(info):
+    info.output_zip.writestr("lib/libshell_jni.so", info.target_zip.read("SYSTEM/lib/libshell_jni.so"))
     info.output_zip.writestr("lib/libshellservice.so", info.target_zip.read("SYSTEM/lib/libshellservice.so"))
     info.output_zip.writestr("lib/libshell.so", info.target_zip.read("SYSTEM/lib/libshell.so"))
     info.output_zip.writestr("lib/libaudiofp.so", info.target_zip.read("SYSTEM/lib/libaudiofp.so"))
