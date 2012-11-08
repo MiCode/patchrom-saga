@@ -26,11 +26,12 @@ def FullOTA_InstallEnd(info):
     AddAssertions(info)
 
 def IncrementalOTA_InstallEnd(info):
+    info.output_zip.writestr("mount_lib.sh", info.target_zip.read("SYSTEM/bin/mount_lib.sh"))
     edify = info.script
     for i in xrange(len(edify.script)):
         if "mount" in edify.script[i] and "/dev/block/mmcblk0p25" in edify.script[i]:
             edify.script[i]="""mount("ext4", "EMMC", "/dev/block/mmcblk0p25", "/system");
-package_extract_file("system/bin/mount_lib.sh", "/mount_lib.sh");
+package_extract_file("mount_lib.sh", "/mount_lib.sh");
 run_program("/sbin/busybox", "chmod", "777", /mount_lib.sh);
 run_program("/mount_lib.sh");"""
     AddAssertions(info)
